@@ -1,19 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { TextField, Button } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
+import { mask, unMask } from "remask";
+import ValidacoesCadastro from "../../contexts/ValidacoesCadastro";
+import useErros from "../../hooks/useErros";
 
 const useStyles = makeStyles((theme) => ({
-  paper: {
-    marginTop: theme.spacing(8),
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-  },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
-  },
   form: {
     width: "100%",
   },
@@ -29,6 +22,14 @@ function DadosEntrega({ aoEnviar }) {
   const [numero, setNumero] = useState("");
   const [estado, setEstado] = useState("");
   const [cidade, setCidade] = useState("");
+  const validacoes = useContext(ValidacoesCadastro);
+  const [erros, validarCampos] = useErros(validacoes);
+
+  const mascaraCep = (event) => {
+    const valorOriginal = unMask(event.target.value);
+    const valorMascarado = mask(valorOriginal, ["99.999-999"]);
+    setCep(valorMascarado);
+  };
 
   return (
     <form
@@ -48,14 +49,14 @@ function DadosEntrega({ aoEnviar }) {
         <Grid item xs={12}>
           <TextField
             value={cep}
-            onChange={(event) => {
-              setCep(event.target.value);
-            }}
+            onChange={mascaraCep}
+            onBlur={validarCampos}
+            error={!erros.cep.valido}
+            helperText={erros.cep.texto}
             id="cep"
             autoFocus
             name="cep"
             label="CEP"
-            type="number"
             variant="outlined"
           />
         </Grid>
@@ -65,9 +66,12 @@ function DadosEntrega({ aoEnviar }) {
             onChange={(event) => {
               setEndereco(event.target.value);
             }}
+            onBlur={validarCampos}
+            error={!erros.endereco.valido}
+            helperText={erros.endereco.texto}
             id="endereco"
-            name="endereço"
-            label="Enderço"
+            name="endereco"
+            label="Endereço"
             type="text"
             variant="outlined"
             fullWidth
@@ -79,6 +83,9 @@ function DadosEntrega({ aoEnviar }) {
             onChange={(event) => {
               setNumero(event.target.value);
             }}
+            onBlur={validarCampos}
+            error={!erros.numero.valido}
+            helperText={erros.numero.texto}
             id="numero"
             name="numero"
             label="Numero"
@@ -92,6 +99,9 @@ function DadosEntrega({ aoEnviar }) {
             onChange={(event) => {
               setEstado(event.target.value);
             }}
+            onBlur={validarCampos}
+            error={!erros.estado.valido}
+            helperText={erros.estado.texto}
             id="estado"
             name="estado"
             label="Estado"
@@ -105,6 +115,9 @@ function DadosEntrega({ aoEnviar }) {
             onChange={(event) => {
               setCidade(event.target.value);
             }}
+            onBlur={validarCampos}
+            error={!erros.cidade.valido}
+            helperText={erros.cidade.texto}
             id="cidade"
             name="cidade"
             label="Cidade"

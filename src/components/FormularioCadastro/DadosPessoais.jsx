@@ -1,23 +1,14 @@
 import React, { useState, useContext } from "react";
 import { TextField, Button, Switch, FormControlLabel } from "@material-ui/core";
 import ValidacoesCadastro from "../../contexts/ValidacoesCadastro";
-import useErros from "../../super/useErros";
+import useErros from "../../hooks/useErros";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
+import { mask, unMask } from "remask";
 
 const useStyles = makeStyles((theme) => ({
-  paper: {
-    marginTop: theme.spacing(8),
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-  },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
-  },
   form: {
-    width: "100%", // Fix IE 11 issue.
+    width: "100%",
     marginTop: theme.spacing(1),
   },
   submit: {
@@ -34,6 +25,14 @@ function DadosPessoais({ aoEnviar }) {
   const [novidades, setNovidades] = useState(false);
   const validacoes = useContext(ValidacoesCadastro);
   const [erros, validarCampos, possoEnviar] = useErros(validacoes);
+
+  const mascaraCpf = (event) => {
+    const valorOriginal = unMask(event.target.value);
+    const valorMascarado = mask(valorOriginal, [
+      "999.999.999-99",
+    ]);
+    setCpf(valorMascarado);
+  };
 
   return (
     <form
@@ -76,6 +75,9 @@ function DadosPessoais({ aoEnviar }) {
             onChange={(event) => {
               setSobrenome(event.target.value);
             }}
+            onBlur={validarCampos}
+            error={!erros.sobrenome.valido}
+            helperText={erros.sobrenome.texto}
             id="sobrenome"
             name="sobrenome"
             label="Sobrenome"
@@ -87,9 +89,7 @@ function DadosPessoais({ aoEnviar }) {
         <Grid item xs={12}>
           <TextField
             value={cpf}
-            onChange={(event) => {
-              setCpf(event.target.value);
-            }}
+            onChange={mascaraCpf}
             onBlur={validarCampos}
             error={!erros.cpf.valido}
             helperText={erros.cpf.texto}

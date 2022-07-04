@@ -2,23 +2,13 @@ import React, { useState, useContext } from "react";
 
 import { TextField, Button } from "@material-ui/core";
 import ValidacoesCadastro from "../../contexts/ValidacoesCadastro";
-import useErros from "../../super/useErros";
+import useErros from "../../hooks/useErros";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 
 const useStyles = makeStyles((theme) => ({
-  paper: {
-    marginTop: theme.spacing(8),
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-  },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
-  },
   form: {
-    width: "100%", // Fix IE 11 issue.
+    width: "100%", 
     marginTop: theme.spacing(1),
   },
   submit: {

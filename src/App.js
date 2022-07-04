@@ -4,7 +4,17 @@ import FormularioCadastro from "./components/FormularioCadastro/FormularioCadast
 import "fontsource-roboto";
 import { Container, Typography } from "@material-ui/core";
 import ValidacoesCadastro from "./contexts/ValidacoesCadastro";
-import { validarCPF, validarSenha } from "./models/cadastro";
+import {
+  validarCPF,
+  validarCep,
+  validarSenha,
+  validarNome,
+  validarSobreNome,
+  endereco,
+  numero,
+  estado,
+  cidade,
+} from "./models/cadastro";
 import Link from "@material-ui/core/Link";
 import Box from "@material-ui/core/Box";
 import { makeStyles } from "@material-ui/core/styles";
@@ -55,7 +65,17 @@ function App() {
           Cadastro
         </Typography>
         <ValidacoesCadastro.Provider
-          value={{ cpf: validarCPF, senha: validarSenha, nome: validarSenha }}
+          value={{
+            cpf: validarCPF,
+            cep: validarCep,
+            senha: validarSenha,
+            nome: validarNome,
+            sobrenome: validarSobreNome,
+            endereco: endereco,
+            numero: numero,
+            estado: estado,
+            cidade: cidade,
+          }}
         >
           <FormularioCadastro aoEnviar={aoEnviarForm} />
         </ValidacoesCadastro.Provider>
