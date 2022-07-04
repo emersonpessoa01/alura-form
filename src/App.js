@@ -20,8 +20,10 @@ import Box from "@material-ui/core/Box";
 import { makeStyles } from "@material-ui/core/styles";
 import Avatar from "@material-ui/core/Avatar";
 import CssBaseline from "@material-ui/core/CssBaseline";
+// import Background from "./assets/aluraplus-home.png"
 
 const useStyles = makeStyles((theme) => ({
+  
   paper: {
     marginTop: theme.spacing(5),
     display: "flex",
@@ -57,9 +59,9 @@ function Copyright() {
 function App() {
   const classes = useStyles();
   return (
-    <Container component="main" maxWidth="xs">
+    <Container  component="main" maxWidth="xs">
       <CssBaseline />
-      <div className={classes.paper}>
+      <div  className={classes.paper}>
         <Avatar className={classes.avatar}></Avatar>
         <Typography component="h1" variant="h5" color="primary">
           Cadastro

@@ -7,5 +7,5 @@
 
 [alura-form](https://alura-form.netlify.app/)
 
-<!-- <div align="center"><img src="img/colegio-deodoro01.jpg" width=100%>
-</div> -->
+<div align="center"><img src="src/assets/form-alura01.png" width=100%>
+</div>
