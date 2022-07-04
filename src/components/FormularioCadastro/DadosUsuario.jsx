@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 
 import { TextField, Button } from "@material-ui/core";
 import ValidacoesCadastro from "../../contexts/ValidacoesCadastro";
-import useErros from "../../hooks/useErros";
+import useErros from "../../super/useErros";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 
