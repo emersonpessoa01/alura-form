@@ -57,6 +57,8 @@ function DadosEntrega({ aoEnviar }) {
             autoFocus
             name="cep"
             label="CEP"
+            type="text"
+            required
             variant="outlined"
           />
         </Grid>
@@ -73,6 +75,7 @@ function DadosEntrega({ aoEnviar }) {
             name="endereco"
             label="Endereço"
             type="text"
+            required
             variant="outlined"
             fullWidth
           />
@@ -89,7 +92,8 @@ function DadosEntrega({ aoEnviar }) {
             id="numero"
             name="numero"
             label="Numero"
-            type="number"
+            type="text"
+            required
             variant="outlined"
           />
         </Grid>
@@ -106,6 +110,7 @@ function DadosEntrega({ aoEnviar }) {
             name="estado"
             label="Estado"
             type="text"
+            required
             variant="outlined"
           />
         </Grid>
@@ -122,6 +127,7 @@ function DadosEntrega({ aoEnviar }) {
             name="cidade"
             label="Cidade"
             type="text"
+            required
             variant="outlined"
           />
         </Grid>

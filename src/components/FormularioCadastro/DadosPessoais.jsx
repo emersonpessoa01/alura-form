@@ -63,6 +63,8 @@ function DadosPessoais({ aoEnviar }) {
             id="nome"
             autoFocus
             label="Nome"
+            type="text"
+            required
             name="nome"
             variant="outlined"
             fullWidth
@@ -81,6 +83,8 @@ function DadosPessoais({ aoEnviar }) {
             id="sobrenome"
             name="sobrenome"
             label="Sobrenome"
+            type="text"
+            required
             variant="outlined"
             margin="normal"
             fullWidth
@@ -96,6 +100,8 @@ function DadosPessoais({ aoEnviar }) {
             id="CPF"
             name="cpf"
             label="CPF"
+            type="text"
+            required
             variant="outlined"
             fullWidth
             margin="normal"
