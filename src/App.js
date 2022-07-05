@@ -23,13 +23,19 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 // import Background from "./assets/aluraplus-home.png"
 
 const useStyles = makeStyles((theme) => ({
-  
+  container: {
+    border: "1px solid #fff",
+    borderRadius: "0.5rem",
+    boxShadow: "0 0 1rem #6c757d",
+  },
   paper: {
     marginTop: theme.spacing(5),
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    zIndex: "2",
   },
+
   avatar: {
     margin: theme.spacing(0),
     backgroundColor: theme.palette.primary.main,
@@ -59,9 +65,9 @@ function Copyright() {
 function App() {
   const classes = useStyles();
   return (
-    <Container  component="main" maxWidth="xs">
+    <Container className={classes.container} component="main" maxWidth="xs">
       <CssBaseline />
-      <div  className={classes.paper}>
+      <div className={classes.paper}>
         <Avatar className={classes.avatar}></Avatar>
         <Typography component="h1" variant="h5" color="primary">
           Cadastro

@@ -28,8 +28,7 @@ function FormularioCadastro({ aoEnviar }) {
         padding: "10px",
         color: "#0a880a77",
         fontSize: "1.5rem",
-        width: "100%"
-        
+        width: "100%",
       }}
     >
       Obrigado pelo Cadastro!
@@ -54,8 +53,9 @@ function FormularioCadastro({ aoEnviar }) {
           flexWrap: "wrap",
           justifyContent: "center",
           gap: "0.625rem",
-          marginTop:"1rem",
-          marginBottom:"1rem"
+          marginTop: "1rem",
+          marginBottom: "1rem",
+          borderRadius: "0.5rem",
         }}
         activeStep={etapaAtual}
       >
