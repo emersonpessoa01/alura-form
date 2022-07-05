@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
     border: "1px solid #fff",
     borderRadius: "0.5rem",
     boxShadow: "0 0 1rem #6c757d",
-    padding: "2rem 2%"
+    padding: "2rem 2%",
   },
   paper: {
     marginTop: theme.spacing(5),
@@ -97,7 +97,10 @@ function App() {
 }
 
 function aoEnviarForm(dados) {
-  console.log(dados);
+  setTimeout(() => {
+    console.log(dados);
+    alert(JSON.stringify(dados));
+  }, 500);
 }
 
 export default App;

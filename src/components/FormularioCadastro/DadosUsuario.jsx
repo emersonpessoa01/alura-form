@@ -8,7 +8,7 @@ import Grid from "@material-ui/core/Grid";
 
 const useStyles = makeStyles((theme) => ({
   form: {
-    width: "100%", 
+    width: "100%",
     marginTop: theme.spacing(1),
   },
   submit: {
@@ -78,14 +78,14 @@ function DadosUsuario({ aoEnviar }) {
         Próximo
       </Button> */}
       <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="secondary"
-            className={classes.submit}
-          >
-            Próximo
-          </Button>
+        type="submit"
+        fullWidth
+        variant="contained"
+        color="secondary"
+        className={classes.submit}
+      >
+        Próximo
+      </Button>
     </form>
   );
 }
