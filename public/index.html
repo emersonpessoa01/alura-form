@@ -25,6 +25,31 @@
       * {
         font-family: "Poppins", "Lato", sans-serif;
       }
+      html {
+        /* font-size: 62.5%; */
+        overflow-x: hidden;
+        scroll-padding-top: 9rem;
+        scroll-behavior: smooth;
+      }
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 6px;
+      }
+
+      ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px #a5aaad;
+        border-radius: 1px;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: #3e54aa;
+        border-radius: 10px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: #f40057;
+      }
+
       body {
         /* background: url(aluraplus-home.png) no-repeat center center; */
         background: linear-gradient(to right, #dadef0, #f3f5f7);
@@ -33,6 +58,9 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    <div
+      style="padding: 2rem 7%; font-family: 'Lexend',Poppins','sans-serif';"
+      id="root"
+    ></div>
   </body>
 </html>
