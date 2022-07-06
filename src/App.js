@@ -55,7 +55,7 @@ function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {"Copyright © "}
-      <Link color="inherit" href="https://www.alura.com.br/">
+      <Link color="inherit" href="https://www.alura.com.br/" target="_blank">
         Alura
       </Link>{" "}
       {new Date().getFullYear()}
