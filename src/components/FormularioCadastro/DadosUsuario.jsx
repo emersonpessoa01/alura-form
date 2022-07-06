@@ -23,6 +23,8 @@ function DadosUsuario({ aoEnviar }) {
   const validacoes = useContext(ValidacoesCadastro);
   const [erros, validarCampos, possoEnviar] = useErros(validacoes);
 
+  console.log({email},{senha})
+
   return (
     <form
       className={classes.form}
@@ -43,14 +45,17 @@ function DadosUsuario({ aoEnviar }) {
             onChange={(event) => {
               setEmail(event.target.value);
             }}
+            onBlur={validarCampos}
+            error={!erros.email.valido}
+            helperText={erros.email.texto}
             id="email"
             autoFocus
             name="email"
             label="email"
             type="email"
-            required
             variant="outlined"
             fullWidth
+            required
           />
         </Grid>
 

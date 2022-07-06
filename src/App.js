@@ -7,6 +7,7 @@ import ValidacoesCadastro from "./contexts/ValidacoesCadastro";
 import {
   validarCPF,
   validarCep,
+  validarEmail,
   validarSenha,
   validarNome,
   validarSobreNome,
@@ -54,7 +55,7 @@ function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {"Copyright © "}
-      <Link color="inherit" href="https://material-ui.com/">
+      <Link color="inherit" href="https://www.alura.com.br/">
         Alura
       </Link>{" "}
       {new Date().getFullYear()}
@@ -77,6 +78,7 @@ function App() {
           value={{
             cpf: validarCPF,
             cep: validarCep,
+            email: validarEmail,
             senha: validarSenha,
             nome: validarNome,
             sobrenome: validarSobreNome,

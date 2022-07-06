@@ -25,11 +25,14 @@ function validarCep(cep) {
   }
 }
 
-function validarSenha(senha) {
-  if (senha.length < 4 || senha.length > 72) {
+function validarEmail(email) {
+  const validEmail = new RegExp(
+    "^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$"
+  );
+  if (!validEmail.test(email)) {
     return {
       valido: false,
-      texto: "Senha deve ter 4 e 72 dígitos.",
+      texto: "Digite um email válido.",
     };
   } else {
     return {
@@ -38,11 +41,28 @@ function validarSenha(senha) {
     };
   }
 }
-function validarNome(nome) {
-  if (nome.length < 4 || nome.length > 20) {
+
+function validarSenha(senha) {
+  const validPassword = new RegExp("^(?=.*?[A-Za-z])(?=.*?[0-9]).{6,}$");
+  if (!validPassword.test(senha)) {
     return {
       valido: false,
-      texto: "Nome deve ter 4 e 20 caracteres.",
+      texto: "Digite senha acima de 5 caracteres, com letras e números.",
+    };
+  } else {
+    return {
+      valido: true,
+      texto: "",
+    };
+  }
+}
+
+function validarNome(nome) {
+  const validNome = new RegExp("^([A-Za-z]s?){3,20}$");
+  if (!validNome.test(nome)) {
+    return {
+      valido: false,
+      texto: "Somente letras maiúsculas ou minúsculas e sem espaço.",
     };
   } else {
     return {
@@ -52,10 +72,11 @@ function validarNome(nome) {
   }
 }
 function validarSobreNome(sobreNome) {
-  if (sobreNome.length < 4 || sobreNome.length > 20) {
+  const validSobreNome = new RegExp("^([A-Za-z]s?){3,20}$");
+  if (!validSobreNome.test(sobreNome)) {
     return {
       valido: false,
-      texto: "Sobrenome deve ter 4 e 20 caracteres.",
+      texto: "Somente letras maiúsculas ou minúsculas e sem espaço.",
     };
   } else {
     return {
@@ -66,10 +87,11 @@ function validarSobreNome(sobreNome) {
 }
 
 function endereco(address) {
-  if (address.length < 4 || address.length > 10000) {
+  const validEndereco = new RegExp("^([A-Za-z]s?){4,50}$");
+  if (!validEndereco.test(address)) {
     return {
       valido: false,
-      texto: "Insira o endereco!",
+      texto: "Somente letras, números e com espaço!",
     };
   } else {
     return {
@@ -79,10 +101,11 @@ function endereco(address) {
   }
 }
 function numero(number) {
-  if (number.length < 1 || number.length > 10000) {
+  const validNumber = new RegExp("^([0-9]s?){1,}$");
+  if (!validNumber.test(number)) {
     return {
       valido: false,
-      texto: "Insira o número!",
+      texto: "Somente números igual ou acima de 1 e sem espaços!",
     };
   } else {
     return {
@@ -92,7 +115,8 @@ function numero(number) {
   }
 }
 function estado(state) {
-  if (state.length < 1 || state.length > 50) {
+  const validState = new RegExp("^([A-Za-záéíóúâêô]s?){3,50}$");
+  if (!validState.test(state)) {
     return {
       valido: false,
       texto: "Insira o estado!",
@@ -105,7 +129,8 @@ function estado(state) {
   }
 }
 function cidade(city) {
-  if (city.length < 1 || city.length > 10000) {
+  const validState = new RegExp("^([A-Za-záéíóúâêô]s?){3,50}$");
+  if (!validState.test(city)) {
     return {
       valido: false,
       texto: "Insira a cidade!",
@@ -121,6 +146,7 @@ function cidade(city) {
 export {
   validarCPF,
   validarCep,
+  validarEmail,
   validarSenha,
   validarNome,
   validarSobreNome,

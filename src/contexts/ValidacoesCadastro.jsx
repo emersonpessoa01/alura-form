@@ -3,6 +3,7 @@ import React from "react";
 const ValidacoesCadastro = React.createContext({
   cpf: semValidacao,
   cep: semValidacao,
+  email:semValidacao,
   senha: semValidacao,
   nome: semValidacao,
   sobreNome: semValidacao,
