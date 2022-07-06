@@ -115,7 +115,7 @@ function numero(number) {
   }
 }
 function estado(state) {
-  const validState = new RegExp("^([A-Za-záéíóúâêô]s?){3,50}$");
+  const validState = new RegExp("^([A-Za-záéíóúâêô]s?){2,50}$");
   if (!validState.test(state)) {
     return {
       valido: false,
