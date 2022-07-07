@@ -87,7 +87,7 @@ function validarSobreNome(sobreNome) {
 }
 
 function endereco(address) {
-  const validEndereco = new RegExp("^([A-Za-z0-9, ç-]s?){4,50}$");
+  const validEndereco = new RegExp("^([A-Za-z0-9_.,: ç-/]s?){4,50}$");
   if (!validEndereco.test(address)) {
     return {
       valido: false,
