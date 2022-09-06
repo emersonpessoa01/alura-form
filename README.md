@@ -5,7 +5,7 @@
 
 ## Pré-visualização:
 
-[alura-form](https://alura-form.netlify.app/)
+[alura-form](https://alura-form.vercel.app/)
 
 <div align="center"><img src="src/assets/form-alura01.png" width=100%>
 </div>
